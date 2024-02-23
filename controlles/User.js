@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 let getAllUsers = async (req,res)=>{
     try {
         const users = await User.find({role:"user"}).select("-password");
-        return res.status(200).json({users});
+        return res.status(200).json({msg: "get user", users });
     } catch (error) {
         return res.status(500).json({msg:"server error" , error:error});
     }
